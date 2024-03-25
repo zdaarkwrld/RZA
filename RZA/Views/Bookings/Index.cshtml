@@ -13,22 +13,22 @@
     <thead>
         <tr>
             <th>
+                @Html.DisplayNameFor(model => model.User_Id)
+            </th>
+            <th>
                 @Html.DisplayNameFor(model => model.Service_Id)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Hotel_Id)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Quantity)
-            </th>
-            <th>
                 @Html.DisplayNameFor(model => model.Date)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Total_Cost)
+                @Html.DisplayNameFor(model => model.Quantity)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Loyalty_Cost)
+                @Html.DisplayNameFor(model => model.Total_Cost)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Loyalty_Points_Earned)
@@ -49,22 +49,22 @@
 @foreach (var item in Model) {
         <tr>
             <td>
+                @Html.DisplayFor(modelItem => item.User_Id)
+            </td>
+            <td>
                 @Html.DisplayFor(modelItem => item.Service_Id)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Hotel_Id)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Quantity)
-            </td>
-            <td>
                 @Html.DisplayFor(modelItem => item.Date)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Total_Cost)
+                @Html.DisplayFor(modelItem => item.Quantity)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Loyalty_Cost)
+                @Html.DisplayFor(modelItem => item.Total_Cost)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Loyalty_Points_Earned)

@@ -10,87 +10,87 @@ using RZA.Models;
 
 namespace RZA.Controllers
 {
-    public class BookingsController : Controller
+    public class HotelsController : Controller
     {
         private readonly ApplicationDbContext _context;
 
-        public BookingsController(ApplicationDbContext context)
+        public HotelsController(ApplicationDbContext context)
         {
             _context = context;
         }
 
-        // GET: Bookings
+        // GET: Hotels
         public async Task<IActionResult> Index()
         {
-              return _context.Bookings != null ? 
-                          View(await _context.Bookings.ToListAsync()) :
-                          Problem("Entity set 'ApplicationDbContext.Bookings'  is null.");
+              return _context.Hotels != null ? 
+                          View(await _context.Hotels.ToListAsync()) :
+                          Problem("Entity set 'ApplicationDbContext.Hotels'  is null.");
         }
 
-        // GET: Bookings/Details/5
+        // GET: Hotels/Details/5
         public async Task<IActionResult> Details(int? id)
         {
-            if (id == null || _context.Bookings == null)
+            if (id == null || _context.Hotels == null)
             {
                 return NotFound();
             }
 
-            var bookings = await _context.Bookings
+            var hotels = await _context.Hotels
                 .FirstOrDefaultAsync(m => m.Id == id);
-            if (bookings == null)
+            if (hotels == null)
             {
                 return NotFound();
             }
 
-            return View(bookings);
+            return View(hotels);
         }
 
-        // GET: Bookings/Create
+        // GET: Hotels/Create
         public IActionResult Create()
         {
             return View();
         }
 
-        // POST: Bookings/Create
+        // POST: Hotels/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,User_Id,Service_Id,Hotel_Id,Date,Quantity,Total_Cost,Loyalty_Points_Earned,Status,Created_At,Updated_At")] Bookings bookings)
+        public async Task<IActionResult> Create([Bind("Id,Name,Description,Price,Created_At,Updated_At")] Hotels hotels)
         {
             if (ModelState.IsValid)
             {
-                _context.Add(bookings);
+                _context.Add(hotels);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            return View(bookings);
+            return View(hotels);
         }
 
-        // GET: Bookings/Edit/5
+        // GET: Hotels/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
-            if (id == null || _context.Bookings == null)
+            if (id == null || _context.Hotels == null)
             {
                 return NotFound();
             }
 
-            var bookings = await _context.Bookings.FindAsync(id);
-            if (bookings == null)
+            var hotels = await _context.Hotels.FindAsync(id);
+            if (hotels == null)
             {
                 return NotFound();
             }
-            return View(bookings);
+            return View(hotels);
         }
 
-        // POST: Bookings/Edit/5
+        // POST: Hotels/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,User_Id,Service_Id,Hotel_Id,Date,Quantity,Total_Cost,Loyalty_Points_Earned,Status,Created_At,Updated_At")] Bookings bookings)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Name,Description,Price,Created_At,Updated_At")] Hotels hotels)
         {
-            if (id != bookings.Id)
+            if (id != hotels.Id)
             {
                 return NotFound();
             }
@@ -99,12 +99,12 @@ namespace RZA.Controllers
             {
                 try
                 {
-                    _context.Update(bookings);
+                    _context.Update(hotels);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!BookingsExists(bookings.Id))
+                    if (!HotelsExists(hotels.Id))
                     {
                         return NotFound();
                     }
@@ -115,49 +115,49 @@ namespace RZA.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            return View(bookings);
+            return View(hotels);
         }
 
-        // GET: Bookings/Delete/5
+        // GET: Hotels/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
-            if (id == null || _context.Bookings == null)
+            if (id == null || _context.Hotels == null)
             {
                 return NotFound();
             }
 
-            var bookings = await _context.Bookings
+            var hotels = await _context.Hotels
                 .FirstOrDefaultAsync(m => m.Id == id);
-            if (bookings == null)
+            if (hotels == null)
             {
                 return NotFound();
             }
 
-            return View(bookings);
+            return View(hotels);
         }
 
-        // POST: Bookings/Delete/5
+        // POST: Hotels/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            if (_context.Bookings == null)
+            if (_context.Hotels == null)
             {
-                return Problem("Entity set 'ApplicationDbContext.Bookings'  is null.");
+                return Problem("Entity set 'ApplicationDbContext.Hotels'  is null.");
             }
-            var bookings = await _context.Bookings.FindAsync(id);
-            if (bookings != null)
+            var hotels = await _context.Hotels.FindAsync(id);
+            if (hotels != null)
             {
-                _context.Bookings.Remove(bookings);
+                _context.Hotels.Remove(hotels);
             }
             
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
-        private bool BookingsExists(int id)
+        private bool HotelsExists(int id)
         {
-          return (_context.Bookings?.Any(e => e.Id == id)).GetValueOrDefault();
+          return (_context.Hotels?.Any(e => e.Id == id)).GetValueOrDefault();
         }
     }
 }
