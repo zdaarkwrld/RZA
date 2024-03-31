@@ -1,3 +1,8 @@
+@font-face {
+    font-family: 'therifv2';
+    src: url('../fonts/therifv2.ttf') format('truetype');
+}
+
 html {
   font-size: 14px;
 }
@@ -15,6 +20,7 @@ html {
 html {
   position: relative;
   min-height: 100%;
+
 }
 
 body {

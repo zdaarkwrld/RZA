@@ -1,8 +1,12 @@
-﻿body {
+﻿@font-face {
+    font-family: 'therifv2';
+    src: url('../fonts/therifv2.ttf') format('truetype');
+}
+
+body {
 background-color: #f5daae;
 
 }
-
 
 .image-container {
 background: url('../images/nature-forest-grass-animal-male-wildlife-1141690-pxhere.com.jpg');
@@ -11,6 +15,7 @@ height: 600px;
 background-position: 60% 50%;
 border-bottom-left-radius: 80% 100px;
 border-bottom-right-radius: 80% 100px;
+
 }
 * {
 margin: 0px;
@@ -30,19 +35,26 @@ margin-top: 0px;
 
 
 .card {
-width: 450px;
-background-color: #f0f0f0;
-border-radius: 8px;
-overflow: hidden;
-box-shadow: 0px 2px 4px rgba(0,0,0,0.2);
-margin: 20px;
+    width: 450px;
+    background-color: #f0f0f0;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0px 2px 4px rgba(0,0,0,0.2);
+    margin: 20px;
+    background-blend-mode: multiply;
 }
 
+.card img:hover {
+    width: 475px;
+    height: auto;
+    transition: 2s ease all;
+}
 .card img {
 width: 100%;
 height: auto;
 display: flex;
 }
+
 
 .card-content {
 padding: 16px;
@@ -73,4 +85,8 @@ padding: 16px;
     text-align: center;
     font-weight: bold;
     margin-top: 50px;
+    font-family: therifv2;
+    font-size: 70px;
+    
+
 }
