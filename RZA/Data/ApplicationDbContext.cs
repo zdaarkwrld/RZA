@@ -17,7 +17,6 @@ namespace RZA.Data
         public DbSet<RZA.Models.Newsletters> Newsletters { get; set; } = default!;
         public DbSet<RZA.Models.Reviews> Reviews { get; set; } = default!;
         public DbSet<RZA.Models.Services> Services { get; set; } = default!;
-        public DbSet<RZA.Models.Users> Users { get; set; } = default!;
         public DbSet<RZA.Models.Hotels> Hotels { get; set; } = default!;
     }
 }
