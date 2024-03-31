@@ -47,7 +47,7 @@ margin-top: 0px;
 .card img:hover {
     width: 475px;
     height: auto;
-    transition: 2s ease all;
+    transition: 0.3s ease all;
 }
 .card img {
 width: 100%;
