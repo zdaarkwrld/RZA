@@ -12,8 +12,8 @@ using RZA.Data;
 namespace RZA.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20240331015058_Identity")]
-    partial class Identity
+    [Migration("20240331192611_InitialIdentityMigration")]
+    partial class InitialIdentityMigration
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
